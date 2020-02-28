@@ -1,0 +1,19 @@
+<p>
+  form works!
+</p>
+
+Model driven form
+<form #modelform="ngForm">
+  <p>ngModel value: {{outerCounterValue}}</p>
+  <app-counter-input name="counter" [(ngModel)]="outerCounterValue"></app-counter-input>
+</form>
+
+<pre>{{ modelform.value | json }}</pre>
+
+Template Driven 
+<form [formGroup]="form">
+  <app-counter-input formControlName="counter"></app-counter-input>
+</form>
+
+<p *ngIf="!form.valid">Counter is invalid!</p>
+<pre>{{ form.value | json }}</pre>
